@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Khaizer T. Reyes, IT student and web developer.">
+<title>Khaizer T. Reyes | Web Developer &amp; UI Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef2f6; --surface:#ffffff; --text:#14323f; --muted:#52687a;
+  --line:#d3dce5; --accent:#2f5bea; --accent-ink:#ffffff; --mark:#f2b84b; --ok:#2e9e6b;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1a22; --surface:#172531; --text:#e6eef4; --muted:#9bb0c0;
+    --line:#2a3b49; --accent:#7f9bff; --accent-ink:#0f1a22;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1a22; --surface:#172531; --text:#e6eef4; --muted:#9bb0c0;
+  --line:#2a3b49; --accent:#7f9bff; --accent-ink:#0f1a22;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",system-ui,sans-serif;font-size:1.05rem;line-height:1.65}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1040px,100% - 2.5rem);margin-inline:auto}
+
+/* header */
+header.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.3rem;text-decoration:none}
+nav{display:flex;align-items:center;gap:1.4rem}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;padding:.2rem 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--text)}
+nav a.active{color:var(--text);border-bottom-color:var(--mark)}
+.icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem}
+.menu-btn{display:none}
+@media (max-width:760px){
+  .menu-btn{display:inline-block}
+  nav{position:absolute;left:-1.25rem;right:-1.25rem;top:64px;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem;display:none}
+  nav.open{display:flex}
+  nav a{padding:.6rem 0;width:100%;border-bottom:0}
+}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;padding:clamp(3rem,9vw,6.5rem) 0}
+.status{display:inline-flex;align-items:center;gap:.5rem;margin:0 0 1rem;padding:.3rem .9rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.95rem;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.hero h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:800;letter-spacing:-.03em}
+.role{margin:1rem 0 0;font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.3rem,3.4vw,1.9rem);font-weight:500}
+.role span{background:linear-gradient(transparent 62%,var(--mark) 62%);padding:0 .15em}
+.intro{max-width:54ch;color:var(--muted);margin:1.2rem 0 1.8rem}
+.avatar{width:clamp(150px,22vw,260px);aspect-ratio:1;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(3rem,8vw,5.5rem);border:6px solid var(--surface);box-shadow:0 0 0 2px var(--mark);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.hero{grid-template-columns:1fr}.avatar{order:-1}}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:999px;border:1.5px solid var(--text);text-decoration:none;cursor:pointer;font:inherit;font-weight:500;color:var(--text);background:transparent;transition:transform .15s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-2px)}
+
+section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.9rem,4.5vw,2.7rem);margin-bottom:1.3rem}
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:start}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+p{margin:0 0 1rem}
+#about p,#contact p{color:var(--muted);max-width:60ch}
+
+/* about facts */
+.facts{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.5rem 1.4rem}
+.facts div{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{color:var(--muted)}.facts dd{margin:0;font-weight:500;text-align:right}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem 3rem}
+.skill .row{display:flex;justify-content:space-between;font-weight:500;margin-bottom:.4rem}
+.skill .row span:last-child{color:var(--muted);font-weight:400;font-size:.92rem}
+.track{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width 1s ease}
+.tools{margin-top:2rem;color:var(--muted)}
+
+/* projects */
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.filters button{font:inherit;padding:.4rem 1rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card[hidden]{display:none}
+.thumb{height:150px;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:2.6rem;color:#fff}
+.body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.3rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0 0 1rem}
+.tags li{font-size:.82rem;padding:.15rem .65rem;border:1px solid var(--line);border-radius:99px}
+.links{display:flex;gap:1.2rem;margin-top:auto;font-weight:500}
+.links a{color:var(--accent)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding-bottom:2rem;max-width:62ch}
+.timeline li::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--mark);border:2px solid var(--bg)}
+.timeline time{color:var(--muted);font-size:.92rem}
+.timeline h3{font-size:1.25rem;margin:.2rem 0 .3rem}
+.timeline p{color:var(--muted);margin:0}
+
+/* contact */
+.social{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:.5rem}
+.social a{font-weight:500;color:var(--accent)}
+.field{display:grid;gap:.3rem;margin-bottom:1rem}
+.field label{font-weight:500}
+.field input,.field textarea{font:inherit;padding:.7rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.error{color:#c0392b;font-size:.9rem;min-height:1.2em}
+:root[data-theme="dark"] .error{color:#ff8a7a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .error{color:#ff8a7a}}
+
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.2rem;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.track i{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#home">KR</a>
+    <nav id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+      <button class="icon-btn" id="theme" aria-label="Switch to dark mode">☾</button>
+    </nav>
+    <button class="icon-btn menu-btn" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+  </div>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div class="hero-text">
+      <p class="status"><span class="dot"></span>Open to internships and freelance work</p>
+      <h1>Khaizer T. Reyes</h1>
+      <p class="role">I build <span id="typed">websites</span></p>
+      <p class="intro">Fourth-year BSIT student who designs and builds responsive websites and mobile app interfaces. I like projects that solve a real problem for real people.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View my work</a>
+        <a class="btn" href="resume.pdf" download>Download CV</a>
+      </div>
+    </div>
+    <div class="avatar" aria-hidden="true">KR</div>
+  </div>
+
+  <section id="about">
+    <div class="wrap two">
+      <div>
+        <h2>About me</h2>
+        <p>I’m an Information Technology student who enjoys both sides of a project: planning how it should look and writing the code that makes it work.</p>
+        <p>For my capstone I worked on a learning management system for my school, and in class I designed a disaster preparedness app from low-fidelity wireframes to a finished mockup. I’m looking for a team where I can keep learning and ship real work.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Philippines</dd></div>
+        <div><dt>Studying</dt><dd>BSIT, 4th year</dd></div>
+        <div><dt>Focus</dt><dd>Front-end and UI/UX</dd></div>
+        <div><dt>Languages</dt><dd>English, Filipino</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <div class="skill"><div class="row"><span>HTML &amp; CSS</span><span>Advanced</span></div><div class="track"><i data-level="85"></i></div></div>
+        <div class="skill"><div class="row"><span>JavaScript</span><span>Intermediate</span></div><div class="track"><i data-level="65"></i></div></div>
+        <div class="skill"><div class="row"><span>UI/UX design</span><span>Intermediate</span></div><div class="track"><i data-level="70"></i></div></div>
+        <div class="skill"><div class="row"><span>Databases (MySQL)</span><span>Intermediate</span></div><div class="track"><i data-level="60"></i></div></div>
+        <div class="skill"><div class="row"><span>PHP</span><span>Beginner</span></div><div class="track"><i data-level="45"></i></div></div>
+        <div class="skill"><div class="row"><span>Git &amp; GitHub</span><span>Beginner</span></div><div class="track"><i data-level="50"></i></div></div>
+      </div>
+      <p class="tools">Tools I use: VS Code, Figma, Canva, XAMPP, GitHub</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button aria-pressed="true" data-filter="all">All</button>
+        <button aria-pressed="false" data-filter="web">Web</button>
+        <button aria-pressed="false" data-filter="design">Design</button>
+      </div>
+      <div class="grid">
+        <article class="card" data-cat="web">
+          <div class="thumb" style="background:#2f5bea">LMS</div>
+          <div class="body">
+            <h3>School Learning Management System</h3>
+            <p>Capstone project where teachers post lessons and activities and students submit work online.</p>
+            <ul class="tags"><li>PHP</li><li>MySQL</li><li>JavaScript</li></ul>
+            <div class="links"><a href="#">Live demo</a><a href="#">Source code</a></div>
+          </div>
+        </article>
+        <article class="card" data-cat="design">
+          <div class="thumb" style="background:#0f8b8d">App</div>
+          <div class="body">
+            <h3>Disaster Preparedness App</h3>
+            <p>Mobile app concept for a barangay: alerts, evacuation info and emergency contacts. Wireframe to high-fidelity mockup.</p>
+            <ul class="tags"><li>Figma</li><li>UI/UX</li><li>Mobile</li></ul>
+            <div class="links"><a href="#">View design</a></div>
+          </div>
+        </article>
+        <article class="card" data-cat="web">
+          <div class="thumb" style="background:#c2410c">Web</div>
+          <div class="body">
+            <h3>Personal Portfolio Website</h3>
+            <p>This site: responsive, with dark mode, a filterable project list and a contact form.</p>
+            <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <div class="links"><a href="#">Source code</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <h2>Education and experience</h2>
+      <ol class="timeline">
+        <li><time>2022 – Present</time><h3>BS Information Technology</h3><p>Your School Name. Coursework in web development, databases, multimedia and systems analysis.</p></li>
+        <li><time>2025</time><h3>Capstone project</h3><p>Built a learning management system with a team of classmates, from requirements to testing.</p></li>
+        <li><time>2026</time><h3>Multimedia class project</h3><p>Designed a mobile app interface in a group, moving from paper wireframes to a clickable Figma prototype.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap two">
+      <div>
+        <h2>Let’s work together</h2>
+        <p>Have a project, internship or question? Send a message and I’ll reply as soon as I can.</p>
+        <ul class="social">
+          <li><a href="mailto:you@example.com">you@example.com</a></li>
+          <li><a href="https://github.com/khaizerreyes" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/khaizerreyes" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="cform">
+        <div class="field"><label for="name">Name</label><input id="name" autocomplete="name"><span class="error" id="e-name"></span></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email"><span class="error" id="e-email"></span></div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" rows="5"></textarea><span class="error" id="e-msg"></span></div>
+        <button class="btn primary" id="send" type="button">Send message</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot"><span>© <span id="year"></span> Khaizer T. Reyes</span><a href="#home">Back to top</a></div>
+</footer>
+
+<script>
+// Theme toggle
+const root = document.documentElement, themeBtn = document.getElementById('theme');
+const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+function paintTheme(){ themeBtn.textContent = isDark() ? '☀' : '☾'; themeBtn.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode'); }
+themeBtn.addEventListener('click', () => { root.dataset.theme = isDark() ? 'light' : 'dark'; paintTheme(); });
+paintTheme();
+
+// Mobile menu
+const menu = document.getElementById('menu'), nav = document.getElementById('nav');
+menu.addEventListener('click', () => { const open = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', open); });
+nav.addEventListener('click', e => { if (e.target.tagName === 'A') { nav.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); } });
+
+// Rotating role text
+const words = ['websites', 'mobile app designs', 'clean interfaces', 'useful tools'];
+let w = 0; const typed = document.getElementById('typed');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  setInterval(() => { w = (w + 1) % words.length; typed.textContent = words[w]; }, 2200);
+}
+
+// Highlight the nav link of the section on screen
+const links = [...document.querySelectorAll('nav a')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id)); });
+}, { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('main section').forEach(s => spy.observe(s));
+
+// Fill skill bars when they scroll into view
+const bars = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.style.width = en.target.dataset.level + '%'; bars.unobserve(en.target); } });
+}, { threshold: .4 });
+document.querySelectorAll('.track i').forEach(b => bars.observe(b));
+
+// Project filter
+const filterBtns = document.querySelectorAll('.filters button'), cards = document.querySelectorAll('.card');
+filterBtns.forEach(b => b.addEventListener('click', () => {
+  filterBtns.forEach(x => x.setAttribute('aria-pressed', x === b));
+  cards.forEach(c => c.hidden = b.dataset.filter !== 'all' && c.dataset.cat !== b.dataset.filter);
+}));
+
+// Contact form: checks the fields, then opens your email app
+document.getElementById('send').addEventListener('click', () => {
+  const f = { name: name.value.trim(), email: email.value.trim(), msg: msg.value.trim() };
+  const err = {
+    name: f.name ? '' : 'Enter your name.',
+    email: /^\S+@\S+\.\S+$/.test(f.email) ? '' : 'Enter a valid email address.',
+    msg: f.msg ? '' : 'Write a message.'
+  };
+  for (const k in err) document.getElementById('e-' + k).textContent = err[k];
+  if (Object.values(err).some(Boolean)) return;
+  const body = encodeURIComponent(f.msg + '\n\n– ' + f.name + ' (' + f.email + ')');
+  location.href = 'mailto:you@example.com?subject=' + encodeURIComponent('Portfolio message from ' + f.name) + '&body=' + body;
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
